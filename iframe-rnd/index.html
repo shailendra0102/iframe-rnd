@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      iframe {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Parent window</h1>
+    <iframe id="iframe" src="http://127.0.0.1:5050//index.html"></iframe>
+  </body>
+  <script>
+    if (window.addEventListener) {
+      window.addEventListener("message", handleMessage);
+    } else {
+      window.attachEvent("onmessage", handleMessage);
+    }
+    function handleMessage(event) {
+      console.log("Received a message from " + event.origin + ".");
+      var messageFromSender = event.data;
+
+      // Do something with the data.
+      console.log(messageFromSender);
+      window.location.href='http://127.0.0.1:8080/submit.html?handover=sdsdsdassad';
+      console.log(window.location.href+'?test=mytest');
+    }
+  </script>
+</html>
